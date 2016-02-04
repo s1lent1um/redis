@@ -10,6 +10,9 @@ RUN add-apt-repository -y ppa:ondrej/php5 && apt-get update && apt-get install -
     php5-cli \
     php5-redis
 
+RUN apt-get install -q -y --force-yes \
+    redis-tools
+
 COPY docker-entrypoint.php /entrypoint.php
 COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
